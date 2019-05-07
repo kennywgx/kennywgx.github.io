@@ -47,8 +47,8 @@ author:
 menu:
   - title:             home
     url:               /
-  - title:             paginate
-    url:               /blog/
+  - title:             outline
+    url:               /outline/
   - title:             About
     url:               /about/
 

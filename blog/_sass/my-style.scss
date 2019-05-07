@@ -1,7 +1,28 @@
+$rems: (
+	1,2,3,4,5,7,8,10,15
+);
+
+
 .next, .previous {
 	margin-left: 2rem;
 	margin-right: 2rem;
 }
-.test {
-	color: #F9DD11;
+
+@each $rem in $rems {
+	.margin-l-#{$rem}, .margin-h-#{$rem}, .margin-#{$rem} {
+		margin-left: #{$rem}rem; 
+	}
+	
+	.margin-r-#{$rem}, .margin-h-#{$rem}, .margin-#{$rem} {
+		margin-right: #{$rem}rem; 
+	}
+	
+	.margin-t-#{$rem}, .margin-v-#{$rem}, .margin-#{$rem} {
+		margin-top: #{$rem}rem; 
+	}
+	
+	.margin-b-#{$rem}, .margin-v-#{$rem}, .margin-#{$rem} {
+		margin-bottom: #{$rem}rem; 
+	}
 }
+

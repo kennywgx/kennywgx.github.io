@@ -215,11 +215,6 @@ Lorem ipsum dolor sit amet, quo id prima corrumpit pertinacia, id ius dolor dolo
 
 </blockquote>
 
-<h2><a href="/2019-03-01-example-7/">Example Content II</a></h2>
-<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
-
-</blockquote>
-
 <h2><a href="/2019-03-01-example-6/">Example Content II</a></h2>
 <blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
@@ -246,6 +241,16 @@ Lorem ipsum dolor sit amet, quo id prima corrumpit pertinacia, id ius dolor dolo
 </blockquote>
 
 <h2><a href="/2019-03-01-example-1/">Example Content II</a></h2>
+<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
+
+</blockquote>
+
+<h2><a href="/2018-03-01-example-7/">Example Content II</a></h2>
+<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
+
+</blockquote>
+
+<h2><a href="/2017-06-01-example-8/">Example Content II</a></h2>
 <blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
 </blockquote>
@@ -322,11 +327,11 @@ Quo eu liber mediocritatem, vix an delectus eleifend, iuvaret suscipit ei vel. P
       <li>
         <a
           
-          href="/blog/"
+          href="/outline/"
           class="sidebar-nav-item"
           
         >
-          paginate
+          outline
         </a>
       </li>
     
