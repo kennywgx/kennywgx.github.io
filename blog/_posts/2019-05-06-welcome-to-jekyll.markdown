@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Welcome to Jekyll!"
+image: /assets/img/blog/wade-lambert.jpg
 date:   2019-05-06 14:57:24 +0800
 categories: jekyll update
 ---

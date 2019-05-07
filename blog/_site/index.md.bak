@@ -33,16 +33,14 @@ Powered by Hydejack v8.4.0 <https://hydejack.com/>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 
-<meta name="robots" content="noindex">
-
 
 
   
 
-<title>Example Content II | 有间客栈</title>
-<meta name="description" content="A page showing how regular markdown content is styled in Hydejack.
+<title>有间客栈</title>
+<meta name="description" content="“有间客栈”.
 ">
-<link rel="canonical" href="http://localhost:4000/2019-03-01-example-3/">
+<link rel="canonical" href="http://localhost:4000/index.md.bak">
 
 
   
@@ -69,7 +67,7 @@ Powered by Hydejack v8.4.0 <https://hydejack.com/>
 
 
 
-<link rel="alternate" href="http://localhost:4000/2019-03-01-example-3/" hreflang="zh">
+<link rel="alternate" href="http://localhost:4000/index.md.bak" hreflang="zh">
 
 <link rel="shortcut icon" href="/assets/icons/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/icons/icon.png">
@@ -176,7 +174,7 @@ Powered by Hydejack v8.4.0 <https://hydejack.com/>
   
     <main
   id="_main"
-  class="content fade-in layout-post"
+  class="content fade-in layout-page"
   role="main"
   data-color="rgb(79,177,186)"
   data-theme-color="rgb(25,55,71)"
@@ -185,331 +183,79 @@ Powered by Hydejack v8.4.0 <https://hydejack.com/>
     data-overlay
   
   >
-  
-
-
-
-
-<article id="post-example-3" class="page post mb6" role="article">
+  <article class="page" role="article">
   <header>
-    <h1 class="post-title">
-      
-        Example Content II
-      
-    </h1>
-
-    <p class="post-date heading">
-      
-      <time datetime="2019-03-01T00:00:00+08:00">01 Mar 2019</time>
-      
-      
-      
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-    </p>
-
-    
-    
-      <div class="img lead sixteen-nine">
-        
-
-
-  <hy-img
-    
-    src="/assets/img/blog/example-content-ii.jpg"
-    
-    alt="Example Content II"
-  
-    
-    root-margin="512px"
-  >
-    <noscript><img data-ignore 
-    src="/assets/img/blog/example-content-ii.jpg"
-    
-    alt="Example Content II"
-  /></noscript>
-    <span class="loading" slot="loading" hidden>
-      <span class="icon-cog"></span>
-    </span>
-  </hy-img>
-
-
-      </div>
-      
-    
-
+    <h1 class="page-title"></h1>
     
 
 
 
-  
-    <p class="message" >
-      A page showing how regular markdown content is styled in Hydejack.
-
-    </p>
-  
+  <div class="hr pb0"></div>
 
 
   </header>
 
-  
-    <p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
+  <h1> hello world </h1>
 
-<p>There should be whitespace between paragraphs.</p>
+Lorem ipsum dolor sit amet, quo id prima corrumpit pertinacia, id ius dolor dolores, an veri pertinax explicari mea. Agam solum et qui, his id ludus graeco adipiscing. Duis theophrastus nam in, at his vidisse atomorum. Tantas gloriatur scripserit ne eos. Est wisi tempor habemus at, ei graeco dissentiet eos. Ne usu aliquip sanctus conceptam, te vis ignota animal, modus latine contentiones ius te.
 
-<p>Text can be <strong>bold</strong>, <em>italic</em>, or <del>strikethrough</del>.</p>
 
-<p><a href="./2018-06-01-example-content-iii.md">Link to another page</a>.</p>
+<h2><a href="/jekyll/update/2019-05-06-welcome-to-jekyll/">Welcome to Jekyll!</a></h2>
+<blockquote><p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
-<h2 id="header-2">Header 2</h2>
-
-<p>This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.</p>
-
-<h3 id="header-3">Header 3</h3>
-
-<blockquote>
-  <p>This is a blockquote following a header.</p>
-
-  <p>When something is important enough, you do it even if the odds are not in your favor.</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Javascript code with syntax highlighting.</span>
-<span class="kd">var</span> <span class="nx">fun</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">lang</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">dateformat</span><span class="p">.</span><span class="nx">i18n</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./lang/'</span> <span class="o">+</span> <span class="nx">l</span><span class="p">)</span>
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<h2><a href="/test/2019-05-06-test-character/">先来篇中文测试!</a></h2>
+<blockquote><p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Ruby code with syntax highlighting</span>
-<span class="no">GitHubPages</span><span class="o">::</span><span class="no">Dependencies</span><span class="p">.</span><span class="nf">gems</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">gem</span><span class="p">,</span> <span class="n">version</span><span class="o">|</span>
-  <span class="n">s</span><span class="p">.</span><span class="nf">add_dependency</span><span class="p">(</span><span class="n">gem</span><span class="p">,</span> <span class="s2">"= </span><span class="si">#{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div></div>
+</blockquote>
 
-<h4 id="header-4">Header 4</h4>
+<h2><a href="/2019-03-01-example/">Example Content II</a></h2>
+<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
-<ul>
-  <li>This is an unordered list following a header.</li>
-  <li>This is an unordered list following a header.</li>
-  <li>This is an unordered list following a header.</li>
-</ul>
+</blockquote>
 
-<h5 id="header-5">Header 5</h5>
+<h2><a href="/2019-03-01-example-7/">Example Content II</a></h2>
+<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
-<ol>
-  <li>This is an ordered list following a header.</li>
-  <li>This is an ordered list following a header.</li>
-  <li>This is an ordered list following a header.</li>
-</ol>
+</blockquote>
 
-<h6 id="header-6">Header 6</h6>
+<h2><a href="/2019-03-01-example-6/">Example Content II</a></h2>
+<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">head1</th>
-      <th style="text-align: left">head two</th>
-      <th style="text-align: left">three</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">ok</td>
-      <td style="text-align: left">good swedish fish</td>
-      <td style="text-align: left">nice</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">out of stock</td>
-      <td style="text-align: left">good and plenty</td>
-      <td style="text-align: left">nice</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ok</td>
-      <td style="text-align: left">good <code class="highlighter-rouge">oreos</code></td>
-      <td style="text-align: left">hmm</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ok</td>
-      <td style="text-align: left">good <code class="highlighter-rouge">zoute</code> drop</td>
-      <td style="text-align: left">yumm</td>
-    </tr>
-  </tbody>
-</table>
+</blockquote>
 
-<h3 id="theres-a-horizontal-rule-below-this">There’s a horizontal rule below this.</h3>
+<h2><a href="/2019-03-01-example-5/">Example Content II</a></h2>
+<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
-<hr />
+</blockquote>
 
-<h3 id="here-is-an-unordered-list">Here is an unordered list:</h3>
+<h2><a href="/2019-03-01-example-4/">Example Content II</a></h2>
+<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
-<ul>
-  <li>Item foo</li>
-  <li>Item bar</li>
-  <li>Item baz</li>
-  <li>Item zip</li>
-</ul>
+</blockquote>
 
-<h3 id="and-an-ordered-list">And an ordered list:</h3>
+<h2><a href="/2019-03-01-example-3/">Example Content II</a></h2>
+<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
-<ol>
-  <li>Item one</li>
-  <li>Item two</li>
-  <li>Item three</li>
-  <li>Item four</li>
-</ol>
+</blockquote>
 
-<h3 id="and-a-nested-list">And a nested list:</h3>
+<h2><a href="/2019-03-01-example-2/">Example Content II</a></h2>
+<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
-<ul>
-  <li>level 1 item
-    <ul>
-      <li>level 2 item</li>
-      <li>level 2 item
-        <ul>
-          <li>level 3 item</li>
-          <li>level 3 item</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>level 1 item
-    <ul>
-      <li>level 2 item</li>
-      <li>level 2 item</li>
-      <li>level 2 item</li>
-    </ul>
-  </li>
-  <li>level 1 item
-    <ul>
-      <li>level 2 item</li>
-      <li>level 2 item</li>
-    </ul>
-  </li>
-  <li>level 1 item</li>
-</ul>
+</blockquote>
 
-<h3 id="small-image">Small image</h3>
+<h2><a href="/2019-03-01-example-1/">Example Content II</a></h2>
+<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
-<p><img src="https://assets-cdn.github.com/images/icons/emoji/octocat.png" alt="" /></p>
+</blockquote>
 
-<h3 id="large-image">Large image</h3>
 
-<p><img src="https://guides.github.com/activities/hello-world/branching.png" alt="" /></p>
+Te falli veritus sea, at molestiae scribentur deterruisset vix, et mea zril phaedrum vulputate. No cum dicit consulatu. Ut has nostro noluisse expetendis, te pro quaeque disputando, eu sed summo omnes. Eos at tale aperiam, usu cu propriae quaestio constituto, sed aperiam erroribus temporibus an.
 
-<h3 id="definition-lists">Definition lists</h3>
+Quo eu liber mediocritatem, vix an delectus eleifend, iuvaret suscipit ei vel. Partem invenire per an, mea postulant dissentias eu, ius tantas audire nominavi eu. Dicunt tritani veritus ex vis, mei in case sententiae. At exerci democritum nam, cu lobortis iracundia mei. Alia eligendi consectetuer eu sed, paulo docendi noluisse sit ex.
 
-<dl>
-  <dt>Name</dt>
-  <dd>Godzilla</dd>
-  <dt>Born</dt>
-  <dd>1952</dd>
-  <dt>Birthplace</dt>
-  <dd>Japan</dd>
-  <dt>Color</dt>
-  <dd>Green</dd>
-</dl>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this. Or is it?
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The final element.
-</code></pre></div></div>
-
-  
 </article>
-
-
-<hr class="dingbat related" />
-
-
-
-
-  
-     
-
-
-
-  
-
-  
-  
-
-  
-    
-
-
-
-
-<aside class="related mb4" role="complementary">
-  <h2 class="hr">Related Posts</h2>
-
-  <ul class="related-posts">
-    
-      
-
-
-<li>
-  <a href="/jekyll/update/2019-05-06-welcome-to-jekyll/" class="h4 flip-title">
-    <span>Welcome to Jekyll!</span>
-  </a>
-  <time class="heading faded fine" datetime="2019-05-06T14:57:24+08:00">06 May 2019</time>
-</li>
-
-    
-      
-
-
-<li>
-  <a href="/test/2019-05-06-test-character/" class="h4 flip-title">
-    <span>先来篇中文测试!</span>
-  </a>
-  <time class="heading faded fine" datetime="2019-05-06T14:57:24+08:00">06 May 2019</time>
-</li>
-
-    
-      
-
-
-<li>
-  <a href="/2019-03-01-example/" class="h4 flip-title">
-    <span>Example Content II</span>
-  </a>
-  <time class="heading faded fine" datetime="2019-03-01T00:00:00+08:00">01 Mar 2019</time>
-</li>
-
-    
-  </ul>
-</aside>
-
-  
-
-  
-  
-
-
   
 
   
