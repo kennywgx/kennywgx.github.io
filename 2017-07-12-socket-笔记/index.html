@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="zh"><!--
+ __  __                __                                     __
+/\ \/\ \              /\ \             __                    /\ \
+\ \ \_\ \   __  __    \_\ \      __   /\_\      __       ___ \ \ \/'\
+ \ \  _  \ /\ \/\ \   /'_` \   /'__`\ \/\ \   /'__`\    /'___\\ \ , <
+  \ \ \ \ \\ \ \_\ \ /\ \L\ \ /\  __/  \ \ \ /\ \L\.\_ /\ \__/ \ \ \\`\
+   \ \_\ \_\\/`____ \\ \___,_\\ \____\ _\ \ \\ \__/.\_\\ \____\ \ \_\ \_\
+    \/_/\/_/ `/___/> \\/__,_ / \/____//\ \_\ \\/__/\/_/ \/____/  \/_/\/_/
+                /\___/                \ \____/
+                \/__/                  \/___/
+
+Powered by Hydejack v8.4.0 <https://hydejack.com/>
+-->
+
+
+
+
+
+
+
+
+
+
+
+<head>
+  
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+<meta name="robots" content="noindex">
+
+
+
+  
+
+<title>Socket实现多人聊天室功能(未完) | 有间客栈</title>
+<meta name="description" content="socket也叫套接字, 是为了方便程序员进行网络开发而被设计出来的编程接口. socket在七层模型中是应该属于传输层(TCP,UDP协议)之上
+的一个抽象接口.
+
+">
+<link rel="canonical" href="http://localhost:4000/2017-07-12-socket-%E7%AC%94%E8%AE%B0/">
+
+
+  
+    <meta name="keywords" content="博客搭建,kennywgx">
+  
+
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="有间客栈">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="application-name" content="有间客栈">
+<meta name="msapplication-config" content="/assets/ieconfig.xml">
+
+
+<meta name="theme-color" content="rgb(25,55,71)">
+
+
+<meta name="generator" content="Hydejack v8.4.0" />
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="有间客栈" />
+
+
+
+<link rel="alternate" href="http://localhost:4000/2017-07-12-socket-%E7%AC%94%E8%AE%B0/" hreflang="zh">
+
+<link rel="shortcut icon" href="/assets/icons/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/icons/icon.png">
+
+<link rel="manifest" href="/assets/manifest.json">
+
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+
+
+
+<link rel="dns-prefetch" href="/" id="_baseURL">
+<link rel="dns-prefetch" href="/assets/js/hydejack-8.4.0.js" id="_hrefJS">
+<link rel="dns-prefetch" href="/sw.js" id="_hrefSW">
+<link rel="dns-prefetch" href="/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js" id="_hrefFFO">
+<link rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.js" id="_hrefKatexJS">
+<link rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.css" id="_hrefKatexCSS">
+<link rel="dns-prefetch" href="/assets/bower_components/katex/dist/contrib/copy-tex.min.js" id="_hrefKatexCopyJS">
+<link rel="dns-prefetch" href="/assets/bower_components/katex/dist/contrib/copy-tex.min.css" id="_hrefKatexCopyCSS">
+<link rel="dns-prefetch" href="/assets/img/swipe.svg" id="_hrefSwipeSVG">
+
+
+
+
+<script>!function(e,t){"use strict";function n(e,t,n,r){e.addEventListener?e.addEventListener(t,n,r):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n}e.loadJS=function(e,r){var o=t.createElement("script");o.src=e,r&&n(o,"load",r,{once:!0});var a=t.scripts[0];return a.parentNode.insertBefore(o,a),o},e._loaded=!1,e.loadJSDeferred=function(r,o){function a(){e._loaded=!0,o&&n(d,"load",o,{once:!0});var r=t.scripts[0];r.parentNode.insertBefore(d,r)}var d=t.createElement("script");return d.src=r,e._loaded?a():n(e,"load",a,{once:!0}),d},e.setRel=e.setRelStylesheet=function(e){function n(){this.rel="stylesheet"}var r=t.getElementById(e);r.addEventListener?r.addEventListener("load",n,{once:!0}):r.onload=n}}(window,document);
+!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+</script>
+
+<script>!function(w, d) {
+    w._noPushState = false;
+    w._noDrawer = false;
+
+    /**/
+    loadJS(d.getElementById('_hrefFFO').href, function() {
+      if ('Promise' in w) Promise.all([
+        new FontFaceObserver('Noto Sans').load(),
+        new FontFaceObserver('Roboto Slab').load(),
+      ]).then(function f() { d.body.classList.add('font-active'); }, function() {});
+    });
+    /**/
+}(window, document);</script>
+
+<!--[if gt IE 8]><!---->
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/hydejack-8.4.0.css">
+  <link rel="stylesheet" href="/assets/icomoon/style.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400|Noto+Sans:400,400i,700,700i">
+    <noscript>
+      <style>
+        html { font-family: Noto Sans, Helvetica, Arial, sans-serif!important; }
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: Roboto Slab, Helvetica, Arial, sans-serif!important; }
+      </style>
+    </noscript>
+  
+
+
+  <style id="_pageStyle">
+
+.content a:not(.btn){color:#4fb1ba;border-color:rgba(79,177,186,0.2)}.content a:not(.btn):hover{border-color:#4fb1ba}:focus{outline-color:#4fb1ba !important}.btn-primary{color:#fff;background-color:#4fb1ba;border-color:#4fb1ba}.btn-primary:focus,.btn-primary.focus,.form-control:focus,.form-control.focus{box-shadow:0 0 0 3px rgba(79,177,186,0.5)}.btn-primary:hover,.btn-primary.hover{color:#fff;background-color:#409ba3;border-color:#409ba3}.btn-primary:disabled,.btn-primary.disabled{color:#fff;background-color:#4fb1ba;border-color:#4fb1ba}.btn-primary:active,.btn-primary.active{color:#fff;background-color:#409ba3;border-color:#409ba3}::selection{color:#fff;background:#4fb1ba}::-moz-selection{color:#fff;background:#4fb1ba}
+
+</style>
+
+
+<!--<![endif]-->
+
+
+
+<script src="/public/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+<script>L2Dwidget.init({"pluginRootPath":"public/live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":true,"model":{"jsonPath":"/public/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":225,"height":450},"mobile":{"show":false},"log":false});</script>
+
+
+</head>
+
+<body>
+  <div id="_navbar" class="navbar fixed-top">
+  <div class="content">
+    <div class="nav-btn-bar">
+      <span class="sr-only">Jump to:</span>
+      <a id="_menu" class="nav-btn no-hover fl" href="#_navigation">
+        <span class="sr-only">Navigation</span>
+        <span class="icon-menu"></span>
+      </a>
+    </div>
+  </div>
+</div>
+<hr class="sr-only" hidden />
+
+
+<hy-push-state
+  replace-ids="_main"
+  link-selector="a[href]:not([href*='/assets/']):not(.external):not(.no-push-state)"
+  duration="250"
+  script-selector="script:not([type^='math/tex'])"
+  prefetch
+>
+  
+    <main
+  id="_main"
+  class="content fade-in layout-post"
+  role="main"
+  data-color="rgb(79,177,186)"
+  data-theme-color="rgb(25,55,71)"
+  
+    data-image="/assets/img/sidebar-bg.jpg"
+    data-overlay
+  
+  >
+  
+
+
+
+
+<article id="post-socket-笔记" class="page post mb6" role="article">
+  <header>
+    <h1 class="post-title">
+      
+        Socket实现多人聊天室功能(未完)
+      
+    </h1>
+
+    <p class="post-date heading">
+      
+      <time datetime="2017-07-12T00:00:00+08:00">12 Jul 2017</time>
+      
+      
+      
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+    </p>
+
+    
+    
+
+    
+
+
+
+  <div class="hr pb0"></div>
+
+
+  </header>
+
+  
+    <p>socket也叫套接字, 是为了方便程序员进行网络开发而被设计出来的编程接口. socket在七层模型中是应该属于传输层(TCP,UDP协议)之上
+的一个抽象接口.</p>
+
+<h3 id="osi七层模型">OSI七层模型</h3>
+<blockquote>
+  <p>应用层</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>网络服务与最终用户的一个接口。
+协议有：HTTP FTP TFTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP
+</code></pre></div></div>
+<blockquote>
+  <p>表示层</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>数据的表示、安全、压缩。（在五层模型里面已经合并到了应用层）
+格式有，JPEG、ASCll、DECOIC、加密格式等
+</code></pre></div></div>
+<blockquote>
+  <p>会话层</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>建立、管理、终止会话。（在五层模型里面已经合并到了应用层）
+对应主机进程，指本地主机与远程主机正在进行的会话
+</code></pre></div></div>
+<blockquote>
+  <p>传输层</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>定义传输数据的协议端口号，以及流控和差错校验。
+协议有：TCP UDP，数据包一旦离开网卡即进入网络传输层
+</code></pre></div></div>
+<blockquote>
+  <p>网络层</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>进行逻辑地址寻址，实现不同网络之间的路径选择。
+协议有：ICMP IGMP IP（IPV4 IPV6） ARP RARP
+</code></pre></div></div>
+<blockquote>
+  <p>数据链路层</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>建立逻辑连接、进行硬件地址寻址、差错校验 [2]  等功能。（由底层网络定义协议）
+将比特组合成字节进而组合成帧，用MAC地址访问介质，错误发现但不能纠正。
+</code></pre></div></div>
+<blockquote>
+  <p>物理层</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>建立、维护、断开物理连接。（由底层网络定义协议）
+</code></pre></div></div>
+<p>从上面的七层模型中我们可以知道建立socket连接是需要IP地址和端口号的, 好了, 废话不多说, 直接进入代码环节.</p>
+
+<h2 id="待完成-解释socket的接口">(待完成) 解释socket的接口</h2>
+
+<h2 id="待完成-先写简单socket的demo来解释阻塞式io-才能更好的理解为什么后面需要用到多线程实现多客户端同时连接">(待完成) 先写简单socket的demo来解释阻塞式IO, 才能更好的理解为什么后面需要用到多线程实现多客户端同时连接</h2>
+<p>~~</p>
+
+<hr />
+
+<h2 id="实现简单聊天室功能">实现简单聊天室功能</h2>
+<h3 id="聊天室服务端">聊天室服务端</h3>
+<p>设计: 一个线程在不断的accept新客户端的连接, 每收到一个客户端连接就起一个线程来监听该客户端的输入流,
+ 并记录该向客户的out流到listeners中, 当收到信息时广播到所有客户端out流中</p>
+
+<p>代码:
+Server.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">socket</span><span class="o">.</span><span class="na">chatroom</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.ServerSocket</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.Socket</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 服务器, 这里需要一直在accept, 所以监听输入流的工作就交给另一个线程
+ * @author Kenny
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Server</span> <span class="o">{</span>
+
+	<span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">OutputStream</span><span class="o">&gt;</span> <span class="n">listeners</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="mi">16</span><span class="o">);</span> 
+	<span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">PORT</span> <span class="o">=</span> <span class="mi">10000</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Server</span> <span class="n">server</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span><span class="o">();</span>
+		<span class="n">server</span><span class="o">.</span><span class="na">startServer</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">startServer</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">try</span> <span class="o">(</span>
+			<span class="n">ServerSocket</span> <span class="n">server</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServerSocket</span><span class="o">(</span><span class="n">PORT</span><span class="o">);</span>
+		<span class="o">){</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"[服务器]启动成功"</span><span class="o">);</span>
+			
+			<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"[服务器]等待连接...."</span><span class="o">);</span>
+				<span class="k">try</span> <span class="o">{</span> 
+					<span class="c1">// 阻塞直到有客户端连接过来</span>
+					<span class="n">Socket</span> <span class="n">socket</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="na">accept</span><span class="o">();</span>
+					<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"[服务器]客户端:"</span> <span class="o">+</span> <span class="n">socket</span><span class="o">.</span><span class="na">getInetAddress</span><span class="o">().</span><span class="na">getHostAddress</span><span class="o">()</span>
+							<span class="o">+</span> <span class="s">"已连接"</span><span class="o">);</span>
+					
+					<span class="n">handle</span><span class="o">(</span><span class="n">socket</span><span class="o">);</span>
+					
+				<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"[异常]连接中断:"</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span> 
+		
+	<span class="o">}</span>
+	
+	<span class="cm">/**
+	 * 处理socket,多线程监听客户端输入流
+	 * @param scanner
+	 * @param socket
+	 * @throws IOException
+	 */</span>
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">handle</span><span class="o">(</span><span class="n">Socket</span> <span class="n">socket</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+		<span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+		<span class="n">OutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+		
+		<span class="c1">// 将客户倾听者注册到广播列表里</span>
+		<span class="n">addListener</span><span class="o">(</span><span class="n">out</span><span class="o">);</span>
+		
+		<span class="c1">// 监听客户端发来的消息的线程, 收到客户端消息时, 广播出去</span>
+		<span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">ServerReadThread</span><span class="o">(</span><span class="n">in</span><span class="o">,</span> <span class="n">out</span><span class="o">,</span> <span class="k">this</span><span class="o">)).</span><span class="na">start</span><span class="o">();</span>
+	<span class="o">}</span>
+	
+	<span class="cm">/**
+	 * ArrayList是线程非安全的, 多线程下操作要注意
+	 * @param out
+	 */</span>
+	<span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">addListener</span><span class="o">(</span><span class="n">OutputStream</span> <span class="n">out</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">listeners</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">out</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">removeListener</span><span class="o">(</span><span class="n">OutputStream</span> <span class="n">out</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">listeners</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">out</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="cm">/**
+	 * 推送消息
+	 * @param message
+	 */</span>
+	<span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">listeners</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">out</span> <span class="o">-&gt;</span> <span class="o">{</span>
+			<span class="k">try</span> <span class="o">{</span>
+				<span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getBytes</span><span class="o">());</span>
+				<span class="n">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+			<span class="o">}</span>
+		<span class="o">});</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>ServerReadThread.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">socket</span><span class="o">.</span><span class="na">chatroom</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStream</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 客户端读广播的线程
+ * @author Kenny
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">ServerReadThread</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="o">{</span>
+	
+	<span class="kd">private</span> <span class="n">InputStream</span> <span class="n">in</span><span class="o">;</span>		<span class="c1">// 客户端向服务器的输入流</span>
+	<span class="kd">private</span> <span class="n">OutputStream</span> <span class="n">out</span><span class="o">;</span>	<span class="c1">// 向客户端的输出流, 保存该对象是为了IO结束时关闭out并从server.listener中删除</span>
+	<span class="kd">private</span> <span class="n">Server</span> <span class="n">server</span><span class="o">;</span>		<span class="c1">// 服务器</span>
+	
+	<span class="kd">public</span> <span class="nf">ServerReadThread</span><span class="o">(</span><span class="n">InputStream</span> <span class="n">in</span><span class="o">,</span> <span class="n">OutputStream</span> <span class="n">out</span><span class="o">,</span> <span class="n">Server</span> <span class="n">server</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">in</span> <span class="o">=</span> <span class="n">in</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">server</span> <span class="o">=</span> <span class="n">server</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">try</span> <span class="o">(</span>
+			<span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">in</span><span class="o">;</span>
+		<span class="o">)</span> <span class="o">{</span>
+			<span class="kt">byte</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
+			<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+			<span class="k">while</span> <span class="o">((</span><span class="n">len</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// 读信息</span>
+				<span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">len</span><span class="o">);</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+				
+				<span class="c1">// 广播消息</span>
+				<span class="n">server</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+			<span class="c1">// IO结束, 关闭out, 从server中清除该out</span>
+			<span class="k">try</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">out</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+					<span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+			<span class="o">}</span>
+			<span class="n">server</span><span class="o">.</span><span class="na">removeListener</span><span class="o">(</span><span class="n">out</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="聊天室客户端">聊天室客户端</h3>
+<p>设计: 主线程监听Scanner输入流, 并向服务器发送数据, 另起一个线程监听服务器向客户端的输入流
+Client.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">socket</span><span class="o">.</span><span class="na">chatroom</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.Socket</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 简单socket客户端demo
+ * @author Kenny
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+	
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">Client</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Client</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Client</span><span class="o">(</span><span class="s">"小红"</span><span class="o">);</span>
+		<span class="n">client</span><span class="o">.</span><span class="na">connect</span><span class="o">();</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">connect</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">try</span> <span class="o">(</span>
+			<span class="n">Scanner</span> <span class="n">scanner</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+			<span class="n">Socket</span> <span class="n">socket</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Socket</span><span class="o">(</span><span class="s">"127.0.0.1"</span><span class="o">,</span> <span class="n">Server</span><span class="o">.</span><span class="na">PORT</span><span class="o">);</span>
+				
+			<span class="n">OutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+			<span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+		<span class="o">)</span> <span class="o">{</span>
+		
+			<span class="n">handle</span><span class="o">(</span><span class="n">scanner</span><span class="o">,</span> <span class="n">in</span><span class="o">,</span> <span class="n">out</span><span class="o">);</span>
+			
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="cm">/**
+	 * 主线程监听客户输入信息,并发送给服务端, 另起一个线程监听服务端发来的信息
+	 * @param scanner	扫描客户窗口输入信息
+	 * @param in		服务端向客户端的输入流
+	 * @param out		客户端向服务端的输出流,scanner扫描到的信息将会写到out里
+	 * @throws IOException
+	 */</span>
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">handle</span><span class="o">(</span><span class="n">Scanner</span> <span class="n">scanner</span><span class="o">,</span> <span class="n">InputStream</span> <span class="n">in</span><span class="o">,</span> <span class="n">OutputStream</span> <span class="n">out</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+		<span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">ClientReadThread</span><span class="o">(</span><span class="n">in</span><span class="o">)).</span><span class="na">start</span><span class="o">();</span>
+		
+		<span class="k">while</span> <span class="o">(</span><span class="n">scanner</span><span class="o">.</span><span class="na">hasNextLine</span><span class="o">())</span> <span class="o">{</span>
+			<span class="c1">// 写信息</span>
+			<span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">scanner</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+			<span class="n">message</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">message</span><span class="o">;</span>
+			<span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getBytes</span><span class="o">());</span>
+			<span class="n">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>ClientReadThread.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">socket</span><span class="o">.</span><span class="na">chatroom</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 客户端读广播的线程
+ * @author Kenny
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">ClientReadThread</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="o">{</span>
+	
+	<span class="kd">private</span> <span class="n">InputStream</span> <span class="n">in</span><span class="o">;</span>		<span class="c1">// 服务器向客户端的输入流</span>
+	
+	<span class="kd">public</span> <span class="nf">ClientReadThread</span><span class="o">(</span><span class="n">InputStream</span> <span class="n">in</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">in</span> <span class="o">=</span> <span class="n">in</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">try</span> <span class="o">(</span>
+			<span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">in</span><span class="o">;</span>
+		<span class="o">)</span> <span class="o">{</span>
+			<span class="kt">byte</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
+			<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+			<span class="k">while</span> <span class="o">((</span><span class="n">len</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// 读信息</span>
+				<span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">len</span><span class="o">);</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="运行结果">运行结果</h3>
+<p><img src="../public/img/2019-05-16_004606.png" alt="服务端截图" />
+<img src="../public/img/2019-05-16_005332.png" alt="客户端小红截图" />
+<img src="../public/img/2019-05-16_005549.png" alt="客户端小明截图" />
+<img src="../public/img/2019-05-16_005629.png" alt="客户端小天截图" /></p>
+
+  
+</article>
+
+
+<hr class="dingbat related" />
+
+
+
+
+  
+     
+
+
+
+  
+
+  
+  
+
+  
+    
+
+
+
+
+<aside class="related mb4" role="complementary">
+  <h2 class="hr">Related Posts</h2>
+
+  <ul class="related-posts">
+    
+      
+
+
+<li>
+  <a href="/jekyll/update/2019-05-06-welcome-to-jekyll/" class="h4 flip-title">
+    <span>Welcome to Jekyll!</span>
+  </a>
+  <time class="heading faded margin-h-1" datetime="2019-05-06T14:57:24+08:00">	06 May 2019</time>
+</li>
+
+    
+      
+
+
+<li>
+  <a href="/test/2019-05-06-test-character/" class="h4 flip-title">
+    <span>先来篇中文测试!</span>
+  </a>
+  <time class="heading faded margin-h-1" datetime="2019-05-06T14:57:24+08:00">	06 May 2019</time>
+</li>
+
+    
+      
+
+
+<li>
+  <a href="/2019-03-01-example/" class="h4 flip-title">
+    <span>Example Content II</span>
+  </a>
+  <time class="heading faded margin-h-1" datetime="2019-03-01T00:00:00+08:00">	01 Mar 2019</time>
+</li>
+
+    
+  </ul>
+</aside>
+
+  
+
+  
+  
+
+
+  
+
+  
+<footer role="contentinfo">
+  <hr/>
+  
+    <p><small class="copyright">© 2019. All rights reserved.
+</small></p>
+  
+  
+  <p><small>Powered by <a class="external" href="https://hydejack.com/">Hydejack</a> v<span id="_version">8.4.0</span></small></p>
+  <hr class="sr-only"/>
+</footer>
+
+
+</main>
+
+    <hy-drawer
+  class=""
+  align="left"
+  threshold="10"
+  touch-events
+  prevent-default
+>
+  <header id="_sidebar" class="sidebar" role="banner">
+    
+    <div class="sidebar-bg sidebar-overlay" style="background-color:rgb(25,55,71);background-image:url(/assets/img/sidebar-bg.jpg)"></div>
+
+    <div class="sidebar-sticky">
+      <div class="sidebar-about">
+        
+          <a class="no-hover" href="/" tabindex="-1">
+            <img src="/assets/icons/icon.png" class="avatar" alt="有间客栈" data-ignore />
+          </a>
+        
+        <h2 class="h1"><a href="/">有间客栈</a></h2>
+        
+        
+          <p class="">
+            “生活不止眼前的苟且,还有远方的苟且~”.
+
+          </p>
+        
+      </div>
+
+      <nav class="sidebar-nav heading" role="navigation">
+        <span class="sr-only">Navigation:</span>
+<ul>
+  
+    
+      
+      <li>
+        <a
+          id="_navigation"
+          href="/"
+          class="sidebar-nav-item active"
+          
+        >
+          home
+        </a>
+      </li>
+    
+      
+      <li>
+        <a
+          
+          href="/outline/"
+          class="sidebar-nav-item"
+          
+        >
+          outline
+        </a>
+      </li>
+    
+      
+      <li>
+        <a
+          
+          href="/about/"
+          class="sidebar-nav-item"
+          
+        >
+          About
+        </a>
+      </li>
+    
+  
+</ul>
+
+      </nav>
+
+      
+
+      <div class="sidebar-social">
+        <span class="sr-only">Social</span>
+<ul>
+  
+    
+    
+
+    
+    
+
+    
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="mailto:<543444431@qq.com>" title="Email" class="no-mark-external">
+      <span class="icon-mail"></span>
+      <span class="sr-only">Email</span>
+    </a>
+  </li>
+
+
+    
+  
+</ul>
+
+      </div>
+    </div>
+  </header>
+</hy-drawer>
+<hr class="sr-only" hidden />
+
+  
+</hy-push-state>
+
+
+  <!--[if !IE]><!---->
+  <script>loadJSDeferred(document.getElementById('_hrefJS').href);</script>
+  
+
+  <!--<![endif]-->
+
+  
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      
+        navigator.serviceWorker.getRegistration()
+          .then(r => r.unregister())
+          .catch(() => {});
+      
+    }
+  </script>
+
+
+
+
+
+
+<h2 class="sr-only" hidden>Templates:</h2>
+
+<template id="_animation-template" hidden>
+  <div class="animation-main fixed-top">
+    <div class="content">
+      <div class="page"></div>
+    </div>
+  </div>
+</template>
+
+<template id="_loading-template" hidden>
+  <div class="loading nav-btn fr">
+    <span class="sr-only">Loading…</span>
+    <span class="icon-cog"></span>
+  </div>
+</template>
+
+<template id="_error-template" hidden>
+  <div class="page">
+    <h1 class="page-title">Error</h1>
+    
+    
+    <p class="lead">
+      Sorry, an error occurred while loading: <a class="this-link" href=""></a>.
+    </p>
+  </div>
+</template>
+
+<template id="_back-template" hidden>
+  <a id="_back" class="back nav-btn fl no-hover">
+    <span class="sr-only">Back</span>
+    <span class="icon-arrow-left2"></span>
+  </a>
+</template>
+
+<template id="_permalink-template" hidden>
+  <a href="#" class="permalink">
+    <span class="sr-only">Permalink</span>
+    <span class="icon-link"></span>
+  </a>
+</template>
+
+
+
+
+</body></html>

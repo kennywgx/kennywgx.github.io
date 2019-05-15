@@ -18,7 +18,7 @@ Todo list:
   # 将生成的静态页面复制到git根目录
   cd blog
   cp _site/* ../ -rf          # in Linux
-  cp .\_site\* ..\ /Y /E      # in Windows
+  xcopy .\_site\* ..\ /Y /E      # in Windows
   
   # 提交到git
   git add .

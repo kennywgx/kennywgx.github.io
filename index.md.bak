@@ -253,6 +253,12 @@ Lorem ipsum dolor sit amet, quo id prima corrumpit pertinacia, id ius dolor dolo
 
 </blockquote>
 
+<h2><a href="/2017-07-12-socket-%E7%AC%94%E8%AE%B0/">Socket实现多人聊天室功能(未完)</a></h2>
+<blockquote><p>socket也叫套接字, 是为了方便程序员进行网络开发而被设计出来的编程接口. socket在七层模型中是应该属于传输层(TCP,UDP协议)之上
+的一个抽象接口.</p>
+
+</blockquote>
+
 <h2><a href="/2017-06-01-example-8/">Example Content II</a></h2>
 <blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
