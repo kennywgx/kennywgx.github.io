@@ -19,15 +19,15 @@ baseurl:               ''
 lang:                  zh
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 有间客栈
+title:                 动动脖子
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  "有间客栈".
+  "生活不止眼前的苟且,还有远方的苟且~".
 # A shorter description for the sidebar.
 tagline:               >
-  "生活不止眼前的苟且,还有远方的苟且~".
+  "就问你多久没运动了?".
 # A list of keywords for your blog
 keywords:              ['博客搭建','kennywgx']
 

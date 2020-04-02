@@ -37,8 +37,8 @@ Powered by Hydejack v8.4.0 <https://hydejack.com/>
 
   
 
-<title>有间客栈</title>
-<meta name="description" content="“有间客栈”.
+<title>动动脖子</title>
+<meta name="description" content="“生活不止眼前的苟且,还有远方的苟且~”.
 ">
 <link rel="canonical" href="http://localhost:4000/index.md.bak">
 
@@ -51,10 +51,10 @@ Powered by Hydejack v8.4.0 <https://hydejack.com/>
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="有间客栈">
+<meta name="apple-mobile-web-app-title" content="动动脖子">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<meta name="application-name" content="有间客栈">
+<meta name="application-name" content="动动脖子">
 <meta name="msapplication-config" content="/assets/ieconfig.xml">
 
 
@@ -63,7 +63,7 @@ Powered by Hydejack v8.4.0 <https://hydejack.com/>
 
 <meta name="generator" content="Hydejack v8.4.0" />
 
-<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="有间客栈" />
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="动动脖子" />
 
 
 
@@ -203,53 +203,8 @@ Powered by Hydejack v8.4.0 <https://hydejack.com/>
 Lorem ipsum dolor sit amet, quo id prima corrumpit pertinacia, id ius dolor dolores, an veri pertinax explicari mea. Agam solum et qui, his id ludus graeco adipiscing. Duis theophrastus nam in, at his vidisse atomorum. Tantas gloriatur scripserit ne eos. Est wisi tempor habemus at, ei graeco dissentiet eos. Ne usu aliquip sanctus conceptam, te vis ignota animal, modus latine contentiones ius te.
 
 
-<h2><a href="/jekyll/update/2019-05-06-welcome-to-jekyll/">Welcome to Jekyll!</a></h2>
+<h2><a href="/test/2019-05-06-test-character/">中文测试!</a></h2>
 <blockquote><p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
-
-</blockquote>
-
-<h2><a href="/test/2019-05-06-test-character/">先来篇中文测试!</a></h2>
-<blockquote><p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
-
-</blockquote>
-
-<h2><a href="/2019-03-01-example/">Example Content II</a></h2>
-<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
-
-</blockquote>
-
-<h2><a href="/2019-03-01-example-6/">Example Content II</a></h2>
-<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
-
-</blockquote>
-
-<h2><a href="/2019-03-01-example-5/">Example Content II</a></h2>
-<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
-
-</blockquote>
-
-<h2><a href="/2019-03-01-example-4/">Example Content II</a></h2>
-<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
-
-</blockquote>
-
-<h2><a href="/2019-03-01-example-3/">Example Content II</a></h2>
-<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
-
-</blockquote>
-
-<h2><a href="/2019-03-01-example-2/">Example Content II</a></h2>
-<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
-
-</blockquote>
-
-<h2><a href="/2019-03-01-example-1/">Example Content II</a></h2>
-<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
-
-</blockquote>
-
-<h2><a href="/2018-03-01-example-7/">Example Content II</a></h2>
-<blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
 </blockquote>
 
@@ -259,7 +214,7 @@ Lorem ipsum dolor sit amet, quo id prima corrumpit pertinacia, id ius dolor dolo
 
 </blockquote>
 
-<h2><a href="/2017-06-01-example-8/">Example Content II</a></h2>
+<h2><a href="/2017-06-01-example/">Example Content II</a></h2>
 <blockquote><p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
 </blockquote>
@@ -302,14 +257,14 @@ Quo eu liber mediocritatem, vix an delectus eleifend, iuvaret suscipit ei vel. P
       <div class="sidebar-about">
         
           <a class="no-hover" href="/" tabindex="-1">
-            <img src="/assets/icons/icon.png" class="avatar" alt="有间客栈" data-ignore />
+            <img src="/assets/icons/icon.png" class="avatar" alt="动动脖子" data-ignore />
           </a>
         
-        <h2 class="h1"><a href="/">有间客栈</a></h2>
+        <h2 class="h1"><a href="/">动动脖子</a></h2>
         
         
           <p class="">
-            “生活不止眼前的苟且,还有远方的苟且~”.
+            “就问你多久没运动了?”.
 
           </p>
         
